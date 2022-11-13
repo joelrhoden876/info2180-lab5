@@ -1,6 +1,6 @@
 window.onload=function(){
 
-    let lookupButton;
+    let countryLookupButton;
     let httpRequest;
     let phpResponse;
     let searchfield;
@@ -8,10 +8,10 @@ window.onload=function(){
     
     searchfield = document.getElementById("country");
     phpResponse = document.getElementById("result");
-    lookupButton= document.getElementById("lookup");
+    countryLookupButton= document.getElementById("lookupco");
 
 
-    lookupButton.addEventListener("click", function(){
+    countryLookupButton.addEventListener("click", function(){
         httpRequest = new XMLHttpRequest();
         httpRequest.onreadystatechange = showResponse;
         httpRequest.open("GET", "world.php?country=" + searchfield.value);
@@ -25,7 +25,7 @@ window.onload=function(){
                 // alert(httpRequest.responseText);
                 phpResponse.textContent = httpRequest.responseText;
                 phpResponse.innerHTML = phpResponse.textContent;
-                // console.log(httpRequest.responseText);
+                console.log(httpRequest.responseText);
             }
             else{
                 alert("Invalid request.");
