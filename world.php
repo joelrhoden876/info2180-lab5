@@ -13,6 +13,7 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $country = $_REQUEST["country"];
 $city = $_REQUEST["city"]; 
 
+//Selects countries which match the country name entered in the searchfield. 
 if (isset($country)){
   if ($country != ""){
     $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
@@ -28,6 +29,7 @@ if (isset($country)){
   }
 }
 
+//Selects the list of cities in the country that is entered. 
 if (isset($city)){
   if ($city != ""){
     $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
@@ -45,7 +47,7 @@ if (isset($city)){
 }
 
 
-
+//Displays html table containing the results from the country request. 
 function showCountryTable($results){
   echo "<table><style>table,th{width:100%;height:100%;border:1px solid black;border-collapse: collapse;table-layout:fixed;margin-left:auto;margin-right:auto;}td{border:1px solid black;padding:10px;}</style><tr>
   <th>Name</th>
@@ -59,6 +61,7 @@ function showCountryTable($results){
   }
 }
 
+//Displays html table containing the results from the city request. 
 function showCityTable($results){
   echo "<table><style>table,th{width:100%;height:100%;border:1px solid black;border-collapse: collapse;table-layout:fixed;margin-left:auto;margin-right:auto;}td{border:1px solid black;padding:10px;}</style><tr>
   <th>Name</th>
